@@ -1,8 +1,13 @@
+import { ArticlesSection } from './../components/ArticlesSection/'
 import React from 'react'
 
+
 function LandingPage() {
+
   return (
-    <div>LandingPage</div>
+    <div>
+      <ArticlesSection/>
+    </div>
   )
 }
 

@@ -11,7 +11,7 @@ import { Modal } from "./components/Modal";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <LandingPage />,
+    element: <Layout><LandingPage /></Layout>,
   },
   {
     path: "/artykuly",
