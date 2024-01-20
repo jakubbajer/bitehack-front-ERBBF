@@ -8,6 +8,7 @@ export interface ArticleTileInterface {
   author: string;
   img: string;
   intro: string;
+  sources: string;
 }
 
 export const ArticleTile = ({

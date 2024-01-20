@@ -21,6 +21,7 @@ body, #root {
     font-weight: 700 !important;
     font-size: 2.5rem !important;
     margin-top: 2rem;
+    color: #5b2b5e;
 }
 
 .article .article-content img {
@@ -29,4 +30,24 @@ body, #root {
 
 .article .article-content {
     margin-bottom: 3rem;
+}
+
+.landing-wave {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.article ul {
+    list-style-type: disc;
+    padding-left: 50px;
+    margin: 20px 0;
+}
+
+.article-intro p {
+    font-weight: 700;
 }

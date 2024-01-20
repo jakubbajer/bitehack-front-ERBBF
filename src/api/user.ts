@@ -35,3 +35,8 @@ export const registerUser = (
     body: JSON.stringify({ user, password }),
     headers: { "content-type": "application/json" },
   });
+
+
+export const getUserStreak = (userId: number) => {
+  return api(`/getUserStreak/${userId}`, {});
+}

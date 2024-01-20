@@ -15,4 +15,4 @@ export const sendUpdate = (userId: number, rating: number, note: string) => api(
 
 export const getDailyUpdate = (userId: number) => api(`/daily-updates/user/${userId}`, {method: "GET"});
 
-export const getRandomDailyUpdate = () => api('/daily-updates/user', {method: "GET"}); 
+export const getRandomDailyUpdate = (userId: number) => api(`/daily-updates/matcher/${userId}`, {method: "GET"}); 

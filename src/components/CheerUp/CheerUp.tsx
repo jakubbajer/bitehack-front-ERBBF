@@ -36,7 +36,7 @@ export const CheerUp = () => {
   useEffect(() => {
     const getRandomUpdate = async () => {
         try {
-            const result = await getRandomDailyUpdate();
+            const result = await getRandomDailyUpdate(userId);
             setToBeCheered(result);
         } catch (error) {
             console.error(error);
@@ -59,7 +59,7 @@ export const CheerUp = () => {
     return note.length > 20;
   }
   if (toBeCheered.id == 0) return null;
-  if ((userAlreadyCheered != null && new Date(userAlreadyCheered)).getDate() == (new Date()).getDate()) return null;
+  // if ((userAlreadyCheered != null && new Date(userAlreadyCheered)).getDate() == (new Date()).getDate()) return null;
 
   return (
     <div className="shadow rounded w-full p-5 bg-gray my-5">

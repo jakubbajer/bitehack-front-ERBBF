@@ -19,13 +19,13 @@ export const TopMenu = () => {
   const menuClasses: string = `w-full md:block md:w-auto`;
 
   return (
-    <nav className="bg-white border-gray-200 dark:bg-gray-900">
+    <nav>
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link
           to="/"
-          className="flex items-center space-x-3 rtl:space-x-reverse"
+          className="font-bold text-l text-primary flex items-center space-x-3 rtl:space-x-reverse"
         >
-          ERBBF
+          ADIFREE
         </Link>
         <button
           onClick={() => setIsMenuToggled(!isMenuToggled)}
@@ -56,11 +56,11 @@ export const TopMenu = () => {
           className={isMenuToggled ? `${menuClasses}` : `hidden ${menuClasses}`}
           id="navbar-default"
         >
-          <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
             <li>
               <Link
                 to="/artykuly"
-                className="block py-2 px-3 text-accent rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 underline font-bold"
+                className="block py-2 px-3 text-primary rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 font-bold"
               >
                 Artykuły
               </Link>
@@ -90,9 +90,10 @@ export const TopMenu = () => {
               </>
             ) : (
               <>
-                <li>
+                <li className="text-primary">
                   <Button
                     kind="text"
+                    className="text-primary"
                     handleClick={() => {
                       handleUserLogout();
                     }}
@@ -103,7 +104,7 @@ export const TopMenu = () => {
                 <li>
                   <Link
                     to="/dashboard"
-                    className="block py-2 px-3 text-accent rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+                    className="block py-2 px-3 text-primary rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
                   >
                     <FontAwesomeIcon icon={faUser} />
                   </Link>

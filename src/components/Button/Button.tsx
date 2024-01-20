@@ -18,7 +18,7 @@ export const Button = ({
     primary: "bg-primary px-4 py-2 text-background font-bold rounded-md",
     secondary: "bg-secondary px-4 py-2 text-background font-bold rounded-md",
     accent: "bg-accent px-4 py-2 text-background font-bold rounded-md",
-    text: "text-accent underline font-bold",
+    text: "text-accent font-bold",
   };
 
   return (

@@ -8,6 +8,7 @@ function LandingPage() {
 
   return (
     <>
+      <div className="landing-wave" style={{backgroundImage: "url(/hero-bg.png)"}}></div>
       <div className="container mx-auto">
         <div className="grid grid-cols-2 gap-10 mb-10 py-5">
           <div className="flex flex-col justify-center">

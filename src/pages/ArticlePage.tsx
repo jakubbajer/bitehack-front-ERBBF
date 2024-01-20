@@ -16,11 +16,11 @@ function ArticlePage() {
 
   return (
     <div className="container mx-auto article">
-      <div className="grid grid-cols-2 gap-10 mb-10 py-5">
+      <div className="grid grid-cols-2 gap-5 mb-10 py-5">
         <div>
           <img src={`http://www.lsdrugs.pl/${article.img}`} className="object-cover w-full max-h-[400px]" />
         </div>
-        <div className="flex flex-col justify-center">
+        <div className="flex flex-col justify-center bg-gray p-5 rounded shadow">
           <p>{article.category}</p>
           <h1 className="font-bold text-3xl text-primary">{article.name}</h1>
           <p>{article.intro}</p>
@@ -29,6 +29,8 @@ function ArticlePage() {
       <div className="article-content" dangerouslySetInnerHTML={{__html: article.content}}>
 
       </div>
+      <h2>Źródła</h2>
+      <div className="article-sources mb-5 bg-gray p-5 rounded shadow" dangerouslySetInnerHTML={{__html: article.sources}}></div>
     </div>
   )
 }
