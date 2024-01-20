@@ -5,6 +5,7 @@ import LandingPage from "./pages/LandingPage";
 import DashboardPage from "./pages/DashboardPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import { EnsureLoggedIn } from "./components/EnsureLoggedIn";
+import { Layout } from "./components/Layout";
 
 const router = createBrowserRouter([
   {
@@ -23,7 +24,9 @@ const router = createBrowserRouter([
     path: "/dashboard",
     element: (
       <EnsureLoggedIn>
-        <DashboardPage />
+        <Layout>
+          <DashboardPage />
+        </Layout>
       </EnsureLoggedIn>
     ),
   },

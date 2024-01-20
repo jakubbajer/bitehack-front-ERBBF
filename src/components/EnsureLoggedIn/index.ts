@@ -1,1 +1,1 @@
-export * from "./EnsureLoggedIn.tsx";
+export * from "./EnsureLoggedIn";
