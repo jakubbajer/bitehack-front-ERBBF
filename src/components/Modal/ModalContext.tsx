@@ -13,14 +13,23 @@ export const ModalContextProvider = ({ children }: { children: ReactNode }) => {
   const [visible, setVisible] = useState(false);
   const [content, setContent] = useState<ReactNode | null>(null);
 
-  const closeModal = () => {
-    setVisible(false);
-    setContent(null);
+  const keydownHandler = (event: KeyboardEvent) => {
+    event.preventDefault();
+    if (event.code === "Escape") {
+      closeModal();
+    }
   };
 
   const openModal = (newContent: ReactNode) => {
+    window.addEventListener("keydown", keydownHandler);
     setContent(newContent);
     setVisible(true);
+  };
+
+  const closeModal = () => {
+    window.removeEventListener("keydown", keydownHandler);
+    setVisible(false);
+    setContent(null);
   };
 
   return (
