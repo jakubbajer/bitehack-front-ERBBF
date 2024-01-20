@@ -11,7 +11,6 @@ function DashboardPage() {
         <CheerUp />
         <Habits />
       </div>
-      //{" "}
     </EnsureLoggedIn>
   );
 }
