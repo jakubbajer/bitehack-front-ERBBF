@@ -1,65 +1,69 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ArticlePage from "./pages/ArticlePage";
 import ArticlesPage from "./pages/ArticlesPage";
 import LandingPage from "./pages/LandingPage";
 import DashboardPage from "./pages/DashboardPage";
 import NotFoundPage from "./pages/NotFoundPage";
-import { EnsureLoggedIn } from "./components/EnsureLoggedIn";
 import { Layout } from "./components/Layout";
 import { Modal } from "./components/Modal";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ModalContextProvider } from "./components/Modal/ModalContext";
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: (
-      <Layout>
-        <LandingPage />
-      </Layout>
-    ),
-  },
-  {
-    path: "/artykuly",
-    element: (
-      <Layout>
-        <ArticlesPage />
-      </Layout>
-    ),
-  },
-  {
-    path: "/artykuly/:id",
-    element: (
-      <Layout>
-        <ArticlePage />
-      </Layout>
-    ),
-  },
-  {
-    path: "/dashboard",
-    element: (
-      <EnsureLoggedIn>
-        <Layout>
-          <DashboardPage />
-        </Layout>
-      </EnsureLoggedIn>
-    ),
-  },
-  {
-    path: "*",
-    element: <NotFoundPage />,
-  },
-]);
+import { UserContextProvider } from "./contexts/UserContext";
 
 const App = () => {
   const queryClient = new QueryClient();
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ModalContextProvider>
-        <RouterProvider router={router} />
-        <Modal />
-      </ModalContextProvider>
+      <BrowserRouter>
+        <UserContextProvider>
+          <ModalContextProvider>
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <Layout>
+                    <LandingPage />
+                  </Layout>
+                }
+              />
+              <Route
+                path="/artykuly"
+                element={
+                  <Layout>
+                    <ArticlesPage />
+                  </Layout>
+                }
+              />
+              <Route
+                path="/artykuly/:id"
+                element={
+                  <Layout>
+                    <ArticlePage />
+                  </Layout>
+                }
+              />
+              <Route
+                path="/dashboard"
+                element={
+                  <Layout>
+                    <DashboardPage />
+                  </Layout>
+                }
+              />
+              <Route
+                path="*"
+                element={
+                  <Layout>
+                    <NotFoundPage />
+                  </Layout>
+                }
+              />
+            </Routes>
+            <Modal />
+          </ModalContextProvider>
+        </UserContextProvider>
+      </BrowserRouter>
     </QueryClientProvider>
   );
 };

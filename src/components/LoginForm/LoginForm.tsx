@@ -3,14 +3,23 @@ import { Button } from "../Button";
 import { useModalContext } from "../Modal/ModalContext";
 import { RegisterForm } from "../RegisterForm";
 import { loginUser } from "../../api/";
+import { useUserContext } from "../../contexts/UserContext";
 
 export const LoginForm = () => {
-  const { openModal } = useModalContext();
+  const { handleUserLogin } = useUserContext();
+  const { openModal, closeModal } = useModalContext();
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = () => {
-    loginUser(user, password).then((res) => console.warn(res));
+    loginUser(user, password)
+      .then((res) => {
+        if (res.loggedIn) {
+          handleUserLogin({ userId: res.data.id, user: res.data.user });
+          closeModal();
+        }
+      })
+      .catch((err) => console.error(err));
   };
 
   return (

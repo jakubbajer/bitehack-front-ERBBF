@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { SetStateAction, useEffect, useState } from "react";
 
-export const useLocalStorage = <T extends boolean | string | number | null>(
+export const useLocalStorage = <T extends string | boolean | null>(
   key: string,
   initial: T
-) => {
+): [string | T, React.Dispatch<SetStateAction<string | T>>] => {
   const storedValue = window.localStorage.getItem(key);
   const [value, setValue] = useState(
     storedValue !== null ? storedValue : initial

@@ -14,8 +14,8 @@ export const ModalContextProvider = ({ children }: { children: ReactNode }) => {
   const [content, setContent] = useState<ReactNode | null>(null);
 
   const keydownHandler = (event: KeyboardEvent) => {
-    event.preventDefault();
     if (event.code === "Escape") {
+      event.preventDefault();
       closeModal();
     }
   };

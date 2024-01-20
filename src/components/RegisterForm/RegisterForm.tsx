@@ -3,14 +3,21 @@ import { registerUser } from "../../api";
 import { Button } from "../Button";
 import { LoginForm } from "../LoginForm";
 import { useModalContext } from "../Modal/ModalContext";
+import { useUserContext } from "../../contexts/UserContext";
 
 export const RegisterForm = () => {
-  const { openModal } = useModalContext();
+  const { handleUserLogin } = useUserContext();
+  const { openModal, closeModal } = useModalContext();
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = () => {
-    registerUser(user, password);
+    registerUser(user, password).then((res) => {
+      if (res.loggedIn) {
+        handleUserLogin({ userId: res.data.id, user: res.data.user });
+        closeModal();
+      }
+    });
   };
 
   return (
