@@ -25,7 +25,8 @@ export const HabitCard = ({ habit }: { habit: Habit }) => {
         />
       </div>
       <div className="my-4 text-center">
-        To Twój <span className="font-bold text-accent">{counter}</span> dzień
+        To Twój{" "}
+        <span className="font-bold text-accent underline">{counter}</span> dzień
         bez tego nawyku z rzędu!
       </div>
       <Button

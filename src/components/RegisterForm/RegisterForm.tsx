@@ -54,7 +54,7 @@ export const RegisterForm = () => {
           />
         </div>
         <div className="flex justify-end mb-8">
-          <Button kind="secondary" handleClick={handleSubmit}>
+          <Button kind="accent" handleClick={handleSubmit}>
             Zarejestruj się
           </Button>
         </div>

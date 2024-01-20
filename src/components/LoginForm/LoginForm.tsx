@@ -56,7 +56,7 @@ export const LoginForm = () => {
           />
         </div>
         <div className="flex justify-end mb-8">
-          <Button kind="secondary" handleClick={handleSubmit}>
+          <Button kind="accent" handleClick={handleSubmit}>
             Zaloguj się
           </Button>
         </div>

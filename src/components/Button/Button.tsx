@@ -13,7 +13,7 @@ export const Button = ({
   kind,
   handleClick,
   className,
-  disabled,
+  disabled = false,
   children,
 }: ButtonProps) => {
   const styles: Record<ButtonProps["kind"], string> = {
