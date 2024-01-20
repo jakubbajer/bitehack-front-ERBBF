@@ -1,15 +1,18 @@
-import React, { useState } from 'react'
+import { Dispatch, SetStateAction, useState } from 'react'
+import { useNavigate } from 'react-router';
 import { Button } from "../Button";
 import { useModalContext } from '../Modal/ModalContext';
 import { sendUpdate } from './../../api/daily-update';
+import { useUserContext } from './../../hooks/useUserContext';
 
 interface DailyUpdate {
     rating: number
     note: string
 }
 
-export const DailyUpdateForm = () => {
+export const DailyUpdateForm = ({ setUpdated } : { setUpdated: Dispatch<SetStateAction<boolean>>}) => {
   const { closeModal } = useModalContext();
+  const { data: { userId } } = useUserContext();
 
   const [ update, setUpdate ] = useState<DailyUpdate>({
     rating: 0,
@@ -38,8 +41,9 @@ export const DailyUpdateForm = () => {
   const ratingClasses : string = 'p-3 cursor-pointer shadow rounded-[50%] w-10 h-10 flex items-center justify-center text-bold';
 
   const postUpdate = () => {
-    sendUpdate(2, update.rating, update.note).then(() => {
-        closeModal()
+    sendUpdate(userId, update.rating, update.note).then(() => {
+      setUpdated(true);
+      closeModal();
     });
   }
 
