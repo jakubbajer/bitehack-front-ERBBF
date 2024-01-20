@@ -6,6 +6,7 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "../Button";
 import { LoginForm } from "../LoginForm";
 import { useModalContext } from "../Modal/ModalContext";
+import { RegisterForm } from "../RegisterForm";
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
   const { openModal } = useModalContext();
@@ -41,9 +42,9 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
             >
               <path
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="M1 1h15M1 7h15M1 13h15"
               />
             </svg>
@@ -58,7 +59,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
               <li>
                 <Link
                   to="/artykuly"
-                  className="block py-2 px-3 text-accent rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
+                  className="block py-2 px-3 text-accent rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 underline font-bold"
                 >
                   Artykuły
                 </Link>
@@ -70,10 +71,19 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                     openModal(<LoginForm />);
                   }}
                 >
-                  Login
+                  Zaloguj się
                 </Button>
               </li>
-
+              <li>
+                <Button
+                  kind="text"
+                  handleClick={() => {
+                    openModal(<RegisterForm />);
+                  }}
+                >
+                  Zarejestruj się
+                </Button>
+              </li>
               <li>
                 <Link
                   to="/dashboard"
