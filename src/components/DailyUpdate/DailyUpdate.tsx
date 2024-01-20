@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useModalContext } from "../Modal/ModalContext";
 import { DailyUpdateForm } from "../DailyUpdateForm";
 import { getDailyUpdate } from "./../../api/daily-update";
@@ -56,7 +56,7 @@ export const DailyUpdate = () => {
     };
 
     getLatestStatus();
-  }, []);
+  }, [modal]);
 
   return (
     <div className="w-full my-5">

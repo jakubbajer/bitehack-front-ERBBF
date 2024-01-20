@@ -4,11 +4,11 @@ import { useNavigate } from "react-router";
 
 type UserContextData = {
   data: {
-    userId: string | null;
+    userId: number | null;
     user: string | null;
     loggedIn: string | boolean;
   };
-  handleUserLogin: ({ userId, user }: { userId: string; user: string }) => void;
+  handleUserLogin: ({ userId, user }: { userId: number; user: string }) => void;
   handleUserLogout: () => void;
 };
 
@@ -16,7 +16,7 @@ const UserContext = createContext<UserContextData | null>(null);
 
 export const UserContextProvider = ({ children }: { children: ReactNode }) => {
   const navigate = useNavigate();
-  const [userId, setUserId] = useLocalStorage<string | null>("userId", null);
+  const [userId, setUserId] = useLocalStorage<number | null>("userId", null);
   const [user, setUser] = useLocalStorage<string | null>("user", null);
   const [loggedIn, setLoggedIn] = useLocalStorage<boolean>("loggedIn", false);
 
@@ -24,7 +24,7 @@ export const UserContextProvider = ({ children }: { children: ReactNode }) => {
     userId,
     user,
   }: {
-    userId: string;
+    userId: number;
     user: string;
   }) => {
     setUserId(userId);

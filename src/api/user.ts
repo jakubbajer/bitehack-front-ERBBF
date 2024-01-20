@@ -2,7 +2,7 @@ import { api } from ".";
 
 type LoginUserReturn = {
   data: {
-    id: string;
+    id: number;
     user: string;
   };
   loggedIn: boolean;
@@ -20,7 +20,7 @@ export const loginUser = (
 
 type RegisterUserReturn = {
   data: {
-    id: string;
+    id: number;
     user: string;
   };
   loggedIn: boolean;

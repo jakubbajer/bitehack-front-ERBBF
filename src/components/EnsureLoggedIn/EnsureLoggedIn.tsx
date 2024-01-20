@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 import { useUserContext } from "../../contexts/UserContext";
 import { useNavigate } from "react-router";
 
@@ -8,9 +8,11 @@ export const EnsureLoggedIn = ({ children }: { children: ReactNode }) => {
     data: { loggedIn },
   } = useUserContext();
 
-  if (!loggedIn) {
-    navigate("/");
-  }
+  useEffect(() => {
+    if (!loggedIn) {
+      navigate("/");
+    }
+  }, [loggedIn, navigate]);
 
   return <>{children}</>;
 };
