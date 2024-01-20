@@ -6,6 +6,7 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "../Button";
 import { LoginForm } from "../LoginForm";
 import { useModalContext } from "../Modal/ModalContext";
+import { RegisterForm } from "../RegisterForm";
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
   const { openModal } = useModalContext();
@@ -70,10 +71,19 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                     openModal(<LoginForm />);
                   }}
                 >
-                  Login
+                  Zaloguj się
                 </Button>
               </li>
-
+              <li>
+                <Button
+                  kind="text"
+                  handleClick={() => {
+                    openModal(<RegisterForm />);
+                  }}
+                >
+                  Zarejestruj się
+                </Button>
+              </li>
               <li>
                 <Link
                   to="/dashboard"
