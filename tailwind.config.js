@@ -9,6 +9,7 @@ export default {
       primary: '#5b2b5e',
       secondary: '#cf7cd5',
       accent: '#aa27b4',
+      white: '#ffffff'
      },
      fontSize: {  
       sm: '0.750rem',

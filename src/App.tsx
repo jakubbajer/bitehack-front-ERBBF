@@ -20,11 +20,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/artykuly",
-    element: <ArticlesPage />,
+    element: <Layout><ArticlesPage /></Layout>,
   },
   {
     path: "/artykuly/:id",
-    element: <ArticlePage />,
+    element: <Layout><ArticlePage /></Layout>,
   },
   {
     path: "/dashboard",
