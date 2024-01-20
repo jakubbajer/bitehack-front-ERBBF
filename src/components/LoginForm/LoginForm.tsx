@@ -3,7 +3,7 @@ import { Button } from "../Button";
 import { useModalContext } from "../Modal/ModalContext";
 import { RegisterForm } from "../RegisterForm";
 import { loginUser } from "../../api/";
-import { useUserContext } from "../../contexts/UserContext";
+import { useUserContext } from "../../hooks/useUserContext";
 
 export const LoginForm = () => {
   const { handleUserLogin } = useUserContext();

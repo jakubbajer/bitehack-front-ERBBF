@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { useModalContext } from "../Modal/ModalContext";
 import { useState } from "react";
-import { useUserContext } from "../../contexts/UserContext";
+import { useUserContext } from "../../hooks/useUserContext";
 
 export const TopMenu = () => {
   const {

@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useContext } from "react";
+import { ReactNode, createContext } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { useNavigate } from "react-router";
 
@@ -12,7 +12,7 @@ type UserContextData = {
   handleUserLogout: () => void;
 };
 
-const UserContext = createContext<UserContextData | null>(null);
+export const UserContext = createContext<UserContextData | null>(null);
 
 export const UserContextProvider = ({ children }: { children: ReactNode }) => {
   const navigate = useNavigate();
@@ -51,14 +51,4 @@ export const UserContextProvider = ({ children }: { children: ReactNode }) => {
       {children}
     </UserContext.Provider>
   );
-};
-
-export const useUserContext = () => {
-  const context = useContext(UserContext);
-
-  if (!context) {
-    throw new Error("useUserContext must be used within a UserContextProvider");
-  }
-
-  return context;
 };
