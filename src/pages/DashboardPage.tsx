@@ -5,13 +5,14 @@ import { CheerUp } from "./../components/CheerUp";
 
 function DashboardPage() {
   return (
-    // <EnsureLoggedIn>
-    <div className="container mx-auto">
-      <DailyUpdate />
-      <CheerUp />
-      <Habits />
-    </div>
-    // </EnsureLoggedIn>
+    <EnsureLoggedIn>
+      <div className="container mx-auto">
+        <DailyUpdate />
+        <CheerUp />
+        <Habits />
+      </div>
+      //{" "}
+    </EnsureLoggedIn>
   );
 }
 
