@@ -12,7 +12,7 @@ export const Modal = () => {
 
   return (
     <div
-      className="absolute w-screen h-screen left-0 top-0 bg-text bg-opacity-20 flex justify-center align-middle p-40"
+      className="absolute w-screen h-screen left-0 top-0 bg-text bg-opacity-20 flex justify-center align-middle p-40 z-50 isolate"
       onClick={(e) => e.stopPropagation()}
     >
       <div className="bg-background rounded-lg max-w-full py-4 px-40 justify-center items-center flex flex-col relative">

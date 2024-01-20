@@ -5,6 +5,7 @@ type ButtonProps = {
   kind: "primary" | "secondary" | "accent" | "text";
   handleClick: MouseEventHandler;
   className?: string;
+  disabled?: boolean;
   children: ReactNode;
 };
 
@@ -12,6 +13,7 @@ export const Button = ({
   kind,
   handleClick,
   className,
+  disabled = false,
   children,
 }: ButtonProps) => {
   const styles: Record<ButtonProps["kind"], string> = {
@@ -24,7 +26,10 @@ export const Button = ({
   return (
     <button
       onClick={handleClick}
-      className={classNames(styles[kind], className)}
+      className={classNames(styles[kind], className, {
+        ["bg-opacity-70"]: disabled,
+      })}
+      disabled={disabled}
     >
       {children}
     </button>
