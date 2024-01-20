@@ -1,9 +1,11 @@
 import { Navigate } from "react-router-dom";
-import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { ReactNode } from "react";
+import { useUserContext } from "../../contexts/UserContext";
 
 export const EnsureLoggedIn = ({ children }: { children: ReactNode }) => {
-  const [loggedIn] = useLocalStorage("loggedIn", false);
+  const {
+    data: { loggedIn },
+  } = useUserContext();
 
   if (!loggedIn) {
     return <Navigate to="/" />;

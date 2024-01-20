@@ -1,13 +1,17 @@
 import { EnsureLoggedIn } from "../components/EnsureLoggedIn";
+import { DailyUpdate } from "./../components/DailyUpdate";
 import { Habits } from "./../components/Habits";
+import { CheerUp } from "./../components/CheerUp";
 
 function DashboardPage() {
   return (
-    <EnsureLoggedIn>
-      <div className="p-5 rounded fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
-        <Habits />
-      </div>
-    </EnsureLoggedIn>
+    // <EnsureLoggedIn>
+    <div className="container mx-auto">
+      <DailyUpdate />
+      <CheerUp />
+      <Habits />
+    </div>
+    // </EnsureLoggedIn>
   );
 }
 
