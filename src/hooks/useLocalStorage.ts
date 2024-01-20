@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const useLocalStorage = <T extends boolean | string | number>(
+export const useLocalStorage = <T extends boolean | string | number | null>(
   key: string,
   initial: T
 ) => {
