@@ -2,15 +2,16 @@ import { api } from ".";
 
 export const createCheerup = (
     updateId: number,
-    recieverId: number, 
+    receiverId: number, 
     senderId: number, 
     content: string
 ) => api('/cheerups', {
     method: 'POST',
     body: JSON.stringify({
         updateId,
-        recieverId,
+        receiverId,
         senderId,
         content
-    })
+    }),
+    headers: { "content-type": "application/json" },
 })

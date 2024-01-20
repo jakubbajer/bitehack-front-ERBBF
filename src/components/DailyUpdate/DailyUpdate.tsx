@@ -36,6 +36,13 @@ const extractRatingsWithDays = (updates: DailyUpdate[]) => {
   };
 };
 
+const scales = {
+  y: {
+    min: 1,
+    max: 5
+  }
+}
+
 export const DailyUpdate = () => {
   const ref = useRef();
   const [updates, setUpdates] = useState<DailyUpdate[]>([]);
@@ -67,7 +74,7 @@ export const DailyUpdate = () => {
         </div>
         <div className="shadow rounded w-full p-5 bg-gray">
           {updates.length ? (
-            <Line ref={ref} data={extractRatingsWithDays(updates)} />
+            <Line ref={ref} data={extractRatingsWithDays(updates)} options={scales} />
           ) : null}
         </div>
       </div>
