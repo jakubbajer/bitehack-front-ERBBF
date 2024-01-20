@@ -57,7 +57,7 @@ export const DailyUpdate = () => {
   console.log(updates)
 
   return (
-    <div className="w-full py-10">
+    <div className="w-full my-5">
         <div className="grid grid-cols-2 gap-10">
             <div className="shadow rounded w-full p-5 bg-gray">
                 <h3 className="text-xl font-bold">Twój dzisiejszy update</h3>
