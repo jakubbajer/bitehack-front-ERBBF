@@ -1,0 +1,30 @@
+.circle {
+  fill: transparent;
+  stroke: #cf7cd555;
+  stroke-linecap: round;
+}
+
+.filled {
+  stroke: #aa27b4ee;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  transition: stroke-dashoffset 0.5s ease-out;
+}
+
+.text {
+  align-items: center;
+  color: #aa27b4ee;
+  display: flex;
+  font-weight: bold;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  letter-spacing: 0.025em;
+  margin-bottom: 1rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  font-size: 2rem;
+}
