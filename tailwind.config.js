@@ -9,11 +9,13 @@ export default {
       primary: '#5b2b5e',
       secondary: '#cf7cd5',
       accent: '#aa27b4',
-      white: '#ffffff'
+      white: '#ffffff',
+      gray: '#fafafa'
      },
      fontSize: {  
       sm: '0.750rem',
       base: '1rem',
+      l: '1.1rem',
       xl: '1.333rem',
       '2xl': '1.777rem',
       '3xl': '2.369rem',
