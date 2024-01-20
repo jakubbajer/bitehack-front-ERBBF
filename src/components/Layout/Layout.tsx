@@ -74,8 +74,10 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
 
       <div id="content">{children}</div>
 
-      <footer className="p-5 bg-gray-100">
-        <p className="text-gray-400">&copy; ERBBF</p>
+      <footer className="p-5 bg-background">
+        <div className="container mx-auto">
+            <p className="text-gray-400">&copy; ERBBF</p>
+        </div>
       </footer>
     </>
   );

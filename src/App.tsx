@@ -10,7 +10,7 @@ import { Layout } from "./components/Layout";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <LandingPage />,
+    element: <Layout><LandingPage /></Layout>,
   },
   {
     path: "/artykuly",
