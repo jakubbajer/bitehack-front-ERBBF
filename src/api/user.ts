@@ -6,3 +6,11 @@ export const loginUser = (user: string, password: string) =>
     body: JSON.stringify({ user, password }),
     headers: { "content-type": "application/json" },
   });
+
+export const registerUser = (user: string, password: string) => {
+  api("/register", {
+    method: "POST",
+    body: JSON.stringify({ user, password }),
+    headers: { "content-type": "application/json" },
+  });
+};

@@ -3,8 +3,12 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { Button } from "../Button";
+import { LoginForm } from "../LoginForm";
+import { useModalContext } from "../Modal/ModalContext";
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
+  const { openModal } = useModalContext();
   const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
 
   const menuClasses: string = `w-full md:block md:w-auto`;
@@ -60,6 +64,17 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                 </Link>
               </li>
               <li>
+                <Button
+                  kind="text"
+                  handleClick={() => {
+                    openModal(<LoginForm />);
+                  }}
+                >
+                  Login
+                </Button>
+              </li>
+
+              <li>
                 <Link
                   to="/dashboard"
                   className="block py-2 px-3 text-accent rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
@@ -76,7 +91,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
 
       <footer className="p-5 bg-background">
         <div className="container mx-auto">
-            <p className="text-gray-400">&copy; ERBBF</p>
+          <p className="text-gray-400">&copy; ERBBF</p>
         </div>
       </footer>
     </>

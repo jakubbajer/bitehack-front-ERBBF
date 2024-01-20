@@ -1,9 +1,9 @@
-import { useModal } from "../../hooks/useModal";
+import { useModalContext } from "./ModalContext";
 
 export const Modal = () => {
-  const { visible, content } = useModal();
+  const { visible, content } = useModalContext();
 
-  if (!visible || !content) {
+  if (!visible) {
     return null;
   }
 

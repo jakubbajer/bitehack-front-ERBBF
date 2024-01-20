@@ -8,6 +8,7 @@ import { EnsureLoggedIn } from "./components/EnsureLoggedIn";
 import { Layout } from "./components/Layout";
 import { Modal } from "./components/Modal";
 import { QueryClient, QueryClientProvider } from "react-query";
+import { ModalContextProvider } from "./components/Modal/ModalContext";
 
 const router = createBrowserRouter([
   {
@@ -20,11 +21,19 @@ const router = createBrowserRouter([
   },
   {
     path: "/artykuly",
-    element: <Layout><ArticlesPage /></Layout>,
+    element: (
+      <Layout>
+        <ArticlesPage />
+      </Layout>
+    ),
   },
   {
     path: "/artykuly/:id",
-    element: <Layout><ArticlePage /></Layout>,
+    element: (
+      <Layout>
+        <ArticlePage />
+      </Layout>
+    ),
   },
   {
     path: "/dashboard",
@@ -47,8 +56,10 @@ const App = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
-      <Modal />
+      <ModalContextProvider>
+        <RouterProvider router={router} />
+        <Modal />
+      </ModalContextProvider>
     </QueryClientProvider>
   );
 };

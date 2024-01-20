@@ -1,21 +1,21 @@
 import { useState } from "react";
+import { registerUser } from "../../api";
 import { Button } from "../Button";
+import { LoginForm } from "../LoginForm";
 import { useModalContext } from "../Modal/ModalContext";
-import { RegisterForm } from "../RegisterForm";
-import { loginUser } from "../../api/";
 
-export const LoginForm = () => {
+export const RegisterForm = () => {
   const { openModal } = useModalContext();
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = () => {
-    loginUser(user, password).then((res) => console.warn(res));
+    registerUser(user, password);
   };
 
   return (
     <div className="flex-col">
-      <h2 className="text-3xl font-bold text-center mb-4">Zaloguj się</h2>
+      <h2 className="text-3xl font-bold text-center mb-4">Zarejestruj się</h2>
       <form
         className="flex flex-col gap-4"
         onSubmit={(e) => {
@@ -48,19 +48,19 @@ export const LoginForm = () => {
         </div>
         <div className="flex justify-end mb-8">
           <Button kind="secondary" handleClick={handleSubmit}>
-            Zaloguj się
+            Zarejestruj się
           </Button>
         </div>
       </form>
       <div className="flex flex-col items-center">
-        <div>Nie masz konta?</div>
+        <div>Masz już konto?</div>
         <Button
           kind="text"
           handleClick={() => {
-            openModal(<RegisterForm />);
+            openModal(<LoginForm />);
           }}
         >
-          Zarejestruj się tutaj
+          Zaloguj się tutaj
         </Button>
       </div>
     </div>
