@@ -7,11 +7,16 @@ import NotFoundPage from "./pages/NotFoundPage";
 import { EnsureLoggedIn } from "./components/EnsureLoggedIn";
 import { Layout } from "./components/Layout";
 import { Modal } from "./components/Modal";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout><LandingPage /></Layout>,
+    element: (
+      <Layout>
+        <LandingPage />
+      </Layout>
+    ),
   },
   {
     path: "/artykuly",
@@ -38,11 +43,13 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => {
+  const queryClient = new QueryClient();
+
   return (
-    <>
-      <RouterProvider router={router} />;
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
       <Modal />
-    </>
+    </QueryClientProvider>
   );
 };
 
