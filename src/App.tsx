@@ -23,7 +23,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Layout child={<DashboardPage/>}/>,
+    element: <Layout><DashboardPage/></Layout>,
   },
 ]);
 

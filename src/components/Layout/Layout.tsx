@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 
-function Layout ({child}: {child: Component}) {
+function Layout ({children}: {children: React.ReactNode}) {
   const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
 
   const menuClasses : string = `w-full md:block md:w-auto`;
@@ -39,7 +39,7 @@ function Layout ({child}: {child: Component}) {
 
 
         <div id="content">
-            {child}
+            {children}
         </div>
 
         <footer className="p-5 bg-gray-100">
