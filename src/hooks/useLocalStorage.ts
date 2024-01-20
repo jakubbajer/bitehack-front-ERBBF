@@ -1,6 +1,6 @@
 import { SetStateAction, useEffect, useState } from "react";
 
-export const useLocalStorage = <T extends string | number | boolean | null>(
+export const useLocalStorage = <T extends string | number | boolean | object | null>(
   key: string,
   initial: T
 ): [T, React.Dispatch<SetStateAction<T>>] => {

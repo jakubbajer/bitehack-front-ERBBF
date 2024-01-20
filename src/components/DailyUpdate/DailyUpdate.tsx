@@ -4,6 +4,7 @@ import { DailyUpdateForm } from "../DailyUpdateForm";
 import { getDailyUpdate } from "./../../api/daily-update";
 import { Line } from "react-chartjs-2";
 import "chart.js/auto"; // ADD THIS
+import { useUserContext } from "./../../hooks/useUserContext";
 
 interface DailyUpdate {
   note: string;
@@ -36,27 +37,43 @@ const extractRatingsWithDays = (updates: DailyUpdate[]) => {
   };
 };
 
+const scales = {
+  y: {
+    min: 1,
+    max: 5
+  }
+}
+
 export const DailyUpdate = () => {
   const ref = useRef();
   const [updates, setUpdates] = useState<DailyUpdate[]>([]);
+  const { data: { userId } } = useUserContext();
+  const [updated, setUpdated] = useState<boolean>(false);
 
   const modal = useModalContext();
 
   useEffect(() => {
     const getLatestStatus = async () => {
       try {
-        const response = await getDailyUpdate(2);
-
+        const response = await getDailyUpdate(userId);
+        console.log(updated, response);
         setUpdates(response);
 
-        if (!response[0].id) modal.openModal(<DailyUpdateForm />);
+        if (!response.length) {
+          modal.openModal(<DailyUpdateForm setUpdated={setUpdated} />)
+          return;
+        }
+        if (!response[0].id) {
+          modal.openModal(<DailyUpdateForm setUpdated={setUpdated} />)
+          return;
+        }
       } catch (error) {
         console.warn(error);
       }
     };
 
     getLatestStatus();
-  }, [modal]);
+  }, [updated]);
 
   return (
     <div className="w-full my-5">
@@ -67,7 +84,7 @@ export const DailyUpdate = () => {
         </div>
         <div className="shadow rounded w-full p-5 bg-gray">
           {updates.length ? (
-            <Line ref={ref} data={extractRatingsWithDays(updates)} />
+            <Line ref={ref} data={extractRatingsWithDays(updates)} options={scales} />
           ) : null}
         </div>
       </div>
