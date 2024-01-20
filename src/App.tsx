@@ -6,6 +6,7 @@ import DashboardPage from "./pages/DashboardPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import { EnsureLoggedIn } from "./components/EnsureLoggedIn";
 import { Layout } from "./components/Layout";
+import { Modal } from "./components/Modal";
 
 const router = createBrowserRouter([
   {
@@ -37,7 +38,12 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => {
-  return <RouterProvider router={router} />;
+  return (
+    <>
+      <RouterProvider router={router} />;
+      <Modal />
+    </>
+  );
 };
 
 export default App;
