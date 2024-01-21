@@ -1,4 +1,10 @@
-# React + TypeScript + Vite
+# ADIFREE - backend
+
+## Description
+
+Adifree is a dynamic and user-friendly web application dedicated to combating addictions. It features a powerful combination of technologies, with Python's Flask framework at its core to provide a robust and scalable backend. The frontend is crafted using React, paired with TypeScript, delivering a responsive and intuitive user interface.
+
+## React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
