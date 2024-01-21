@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { Button } from "../Button";
 
 export interface ArticleTileInterface {
   id: number;
@@ -20,6 +21,8 @@ export const ArticleTile = ({
   img,
   intro,
 }: ArticleTileInterface) => {
+  const navigate = useNavigate();
+
   return (
     <article className="flex flex-col shadow max-w-[400px] rounded overflow-hidden">
       <Link to={`/artykuly/${id}`} className="hover:opacity-75">
@@ -29,7 +32,7 @@ export const ArticleTile = ({
         />
       </Link>
       <div className="bg-white flex flex-col justify-between h-full p-6">
-        <div>
+        <div className="mb-5">
           <p className="text-primary text-sm font-bold uppercase pb-4">
             {category}
           </p>
@@ -41,12 +44,7 @@ export const ArticleTile = ({
           </Link>
           <p className="text-text line-clamp-3">{intro}</p>
         </div>
-        <Link
-          to={`/artykuly/${id}`}
-          className="p-4 bg-primary rounded text-white text-center font-body mt-5"
-        >
-          Przeczytaj
-        </Link>
+        <Button kind="primary" children="Przeczytaj" handleClick={() => navigate(`/artykuly/${id}`)}/>
       </div>
     </article>
   );

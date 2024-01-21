@@ -1,6 +1,8 @@
 import { ArticlesSection } from './../components/ArticlesSection/'
 import React from 'react'
 import arts from './../assets/response.json';
+import { SupportSection } from './../components/SupportSection';
+import { StatsSection } from './../components/StatsSection';
 
 const substances = arts.filter((art : {category: string}) => art.category == "Substancje").slice(0, 3);
 
@@ -20,9 +22,8 @@ function LandingPage() {
           </div>
         </div>
       </div>
-      <div className="container mx-auto">
-        <h3 className="text-4xl font-bold">Wiedza</h3>
-      </div>
+      <SupportSection />
+      <StatsSection />
       <ArticlesSection substances={substances}/>
     </>
   )
