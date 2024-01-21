@@ -67,7 +67,7 @@ export const CheerUp = ({setCheered} : {setCheered: Dispatch<SetStateAction<bool
   }
 
   return (
-    <div className="shadow rounded w-full px-5 bg-gray my-10">
+    <div className="shadow rounded w-full p-5 bg-gray my-10">
         <h3 className="text-xl font-bold">Wspieraj innych!</h3>
         <div>
             <FontAwesomeIcon icon={faUserAlt} /> <span className="text-primary ms-3">Anonim - ocena samopoczucia: {toBeCheered.rating}</span>
