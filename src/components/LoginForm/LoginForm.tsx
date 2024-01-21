@@ -12,6 +12,7 @@ export const LoginForm = () => {
   const [password, setPassword] = useState("");
 
   const handleSubmit = () => {
+    console.log(user,password)
     loginUser(user, password)
       .then((res) => {
         if (res.loggedIn) {
