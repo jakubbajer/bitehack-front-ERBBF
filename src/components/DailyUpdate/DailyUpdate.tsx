@@ -107,10 +107,10 @@ export const DailyUpdate = () => {
     <div className="w-full my-10">
       <div className="grid grid-cols-2 gap-10">
         <div className="shadow rounded w-full p-5 bg-primary text-white flex flex-col items-center justify-center relative">
-          <h3 className="text-xl font-bold">Twój dzisiejszy update</h3>
-          <p className="text-l">{(updates && updates.length) ? updates[0].note : null}</p>
-          <p className="absolute top-[60%] text-4xl left-[20%] quote-sign">"</p>
-          <p className="absolute top-[30%] text-4xl right-[20%] quote-sign">"</p>
+          <h3 className="text-xl font-bold text-center">Twój dzisiejszy update</h3>
+          <p className="text-l text-center">{(updates && updates.length) ? updates[0].note : null}</p>
+          <p className="hidden md:block absolute top-[60%] text-4xl left-[20%] quote-sign">"</p>
+          <p className="hidden md:block absolute top-[30%] text-4xl right-[20%] quote-sign">"</p>
         </div>
         <div className="shadow rounded w-full p-5 bg-gray">
           {chartData ? (

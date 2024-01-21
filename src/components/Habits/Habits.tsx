@@ -69,7 +69,7 @@ export const Habits = () => {
         </div>
       </div>
       <div className="flex flex-col my-16">
-        <div className="grid grid-cols-3 gap-4 justify-evenly">
+        <div className="flex columns-3 gap-4 justify-between">
           {data.data.map((habit) => (
             <HabitCard habit={habit} />
           ))}
