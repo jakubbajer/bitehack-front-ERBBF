@@ -77,6 +77,7 @@ export const TopMenu = () => {
               <>
                 <li>
                   <Button
+                  className="text-primary"
                     kind="text"
                     handleClick={() => {
                       openModal(<LoginForm />);
@@ -87,6 +88,7 @@ export const TopMenu = () => {
                 </li>
                 <li>
                   <Button
+                    className="text-primary"
                     kind="text"
                     handleClick={() => {
                       openModal(<RegisterForm />);
