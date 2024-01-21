@@ -18,3 +18,8 @@ export const getTherapists = (): Promise<GetTherapistsReturn> =>
     api(`/therapists`, {
         method: "GET",
     });
+
+export const getTherapistsFiltered = (userId: number): Promise<GetTherapistsReturn> =>
+    api(`/therapists/filtered/${userId}`, {
+        method: "GET",
+    });
