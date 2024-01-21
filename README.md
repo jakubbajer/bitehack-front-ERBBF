@@ -1,4 +1,4 @@
-# ADIFREE - backend
+# ADIFREE - frontend
 
 ## Description
 
