@@ -9,6 +9,7 @@ import { Modal } from "./components/Modal";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ModalContextProvider } from "./components/Modal/ModalContext";
 import { UserContextProvider } from "./contexts/UserContext";
+import UsefulPages from "./pages/UsefulPages.tsx";
 
 const App = () => {
   const queryClient = new QueryClient();
@@ -27,6 +28,14 @@ const App = () => {
                   </Layout>
                 }
               />
+                <Route
+                    path="/przydatne-strony"
+                    element={
+                        <Layout>
+                            <UsefulPages />
+                        </Layout>
+                    }
+                />
               <Route
                 path="/artykuly"
                 element={

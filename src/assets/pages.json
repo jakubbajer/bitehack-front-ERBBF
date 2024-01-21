@@ -1,0 +1,28 @@
+{
+  "pages": [
+    {
+      "link": "https://sin.org.pl/",
+      "name": "Społeczna Inicjatywa Narkopolityki",
+      "description": "SIN to organizacja non profit działająca na rzecz polityki narkotykowej opartej na faktach i prawach człowieka - Społeczna Inicjatywa Narkopolityki",
+      "image": "https://sin.org.pl/wp-content/uploads/2022/03/logobiale.png"
+    },
+    {
+      "link": "https://lsdrugs.pl/",
+      "name": "LSDrugs",
+      "description": "Jesteśmy LSDrugs i postanowiliśmy stworzyć projekt społeczny, w którym chcemy przybliżyć wam temat narkotyków i redukcji szkód wynikających z ich używania.",
+      "image": "https://scontent-waw1-1.xx.fbcdn.net/v/t39.30808-6/263922305_123232676826261_2560834553292265972_n.png?_nc_cat=102&ccb=1-7&_nc_sid=efb6e6&_nc_ohc=EGyTLE0WBq0AX9LHDE_&_nc_ht=scontent-waw1-1.xx&oh=00_AfDl0ht7RR_dhzADB0_lOWUQRBtDZU8D4Q5nIvRXYAFJoQ&oe=65B25365"
+    },
+    {
+      "link": "https://mestoslaw.pl/",
+      "name": "Mestosław",
+      "description": "Jestem aktywistą racjonalnej polityki narkotykowej. Od 2017 r. · Jestem aktywistą i społecznikiem, dlatego mocno działam w organizacjach pozarządowych.",
+      "image": "https://mestoslaw.pl/wp-content/uploads/2021/04/mlogo.png"
+    },
+    {
+      "link": "https://psychopakiet.pl/",
+      "name": "Psychopakiet",
+      "description": "Psychopakiet to ogólnopolski program wsparcia psychologicznego dla pracowników firm i ich bliskich. Nowoczesny benefit pracowniczy, który pomaga odpowiedzialnym pracodawcom dbać o swój zespół.",
+      "image": "https://psychopakiet.pl/asset/logo/logo-white.svg"
+    }
+  ]
+}

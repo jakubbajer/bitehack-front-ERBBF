@@ -51,3 +51,7 @@ body, #root {
 .article-intro p {
     font-weight: 700;
 }
+
+.bg-gray {
+    background-color: lightgray;
+}
