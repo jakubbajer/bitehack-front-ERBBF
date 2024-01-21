@@ -7,6 +7,7 @@ import "chart.js/auto"; // ADD THIS
 import { useUserContext } from "./../../hooks/useUserContext";
 import * as React from "react";
 import { SuspiciousUpdate } from "../SuspiciousUpdate";
+import { useQuery } from "react-query";
 
 interface DailyUpdate {
   note: string;
@@ -55,12 +56,15 @@ export const DailyUpdate = () => {
 
   const modal = useModalContext();
 
+  const { data, isLoading } = useQuery({
+    queryKey: ["updates"],
+    queryFn: () => getDailyUpdate(userId),
+  });
+
   useEffect(() => {
     const getLatestStatus = async () => {
       try {
-        const response = await getDailyUpdate(userId);
-
-        const sorted = response.sort((a: DailyUpdate, b: DailyUpdate) => {
+        const sorted = data.sort((a: DailyUpdate, b: DailyUpdate) => {
           return b.timestamp - a.timestamp;
         });
 
@@ -89,9 +93,10 @@ export const DailyUpdate = () => {
         console.warn(error);
       }
     };
-
-    getLatestStatus();
-  }, [updated]);
+    if (!isLoading) {
+      getLatestStatus();
+    }
+  }, [updated, isLoading]);
 
   useEffect(() => {
     if (suspiciousUpdate)
@@ -99,11 +104,13 @@ export const DailyUpdate = () => {
   }, [suspiciousUpdate])
 
   return (
-    <div className="w-full my-5">
+    <div className="w-full my-10">
       <div className="grid grid-cols-2 gap-10">
-        <div className="shadow rounded w-full p-5 bg-gray">
+        <div className="shadow rounded w-full p-5 bg-primary text-white flex flex-col items-center justify-center relative">
           <h3 className="text-xl font-bold">Twój dzisiejszy update</h3>
           <p className="text-l">{(updates && updates.length) ? updates[0].note : null}</p>
+          <p className="absolute top-[60%] text-4xl left-[20%] quote-sign">"</p>
+          <p className="absolute top-[30%] text-4xl right-[20%] quote-sign">"</p>
         </div>
         <div className="shadow rounded w-full p-5 bg-gray">
           {chartData ? (

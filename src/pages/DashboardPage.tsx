@@ -5,6 +5,7 @@ import { CheerUp } from "./../components/CheerUp";
 import { useEffect, useState } from "react";
 import { getUserStreak } from "./../api/user";
 import { useUserContext } from "./../hooks/useUserContext";
+import { PastCheerups } from "./../components/PastCheerups";
 
 interface UserStreak {
   userStreak: boolean
@@ -35,18 +36,15 @@ function DashboardPage() {
       <div className="h-[200px] flex justify-center items-center bg-primary p-4 mb-10">
         <div className="container mx-auto flex flex-col justify-center">
           <h2 className="text-3xl text-white">Witaj <span className="font-bold">{user}</span>, to twój profil.</h2>
+          {streak ? <p className="font-bold text-white">🔥 Twój streak wynosi: {streak.data}</p> : null}
+          <p className="text-white ps-5">Integruj się ze społecznością aby utrzymać streak.</p>
         </div>
       </div>
       <div className="container mx-auto">
-        <div className="shadow rounded w-full p-5 bg-gray">
-          {streak ? <p className="font-bold">🔥 Twój streak wynosi: {streak.data}</p> : null}
-          <p>Integruj się ze społecznością aby utrzymać streak.</p>
-        </div>
-      </div>
-      <div className="container mx-auto">
+        <Habits />
         <DailyUpdate />
         <CheerUp setCheered={setCheered} />
-        <Habits />
+        <PastCheerups/>
       </div>
     </EnsureLoggedIn>
   );

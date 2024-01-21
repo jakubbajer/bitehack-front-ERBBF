@@ -59,3 +59,11 @@ progress::-moz-progress-bar {
 .progress-bar {
     height: 30px;
 }
+
+progress::-webkit-progress-value {
+    transition: width 0.5s;
+}
+
+.quote-sign {
+    color: #ededed;
+}

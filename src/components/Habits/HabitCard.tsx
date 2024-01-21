@@ -58,16 +58,16 @@ export const HabitCard = ({ habit }: { habit: Habit }) => {
         {HABIT_NAMES[habit.habitId]}
       </h3>
       <div className="max-w-40 flex justify-center items-center">
-        <ProgressCircle
+        {date.days != null ? <ProgressCircle
           progress={Math.round((date.days / 365) * 100)}
           width={144}
-        />
+        /> : null}
       </div>
       <div className="my-4">
         { date.days > 0 ? <h2 className="font-bold text-xl mb-3 text-center">To juz {date.days} dni</h2> : null }
         <div className="flex relative mb-3">
           <span className="ps-3 absolute top-[50%] translate-y-[-50%] text-white">Godzin: {date.hours}</span>
-          <progress className="progress-bar" id="file" value={date.day} max={24}></progress>
+          <progress className="progress-bar" id="file" value={date.hours} max={24}></progress>
         </div>
 
         <div className="flex relative mb-3">
@@ -77,7 +77,7 @@ export const HabitCard = ({ habit }: { habit: Habit }) => {
 
         <div className="flex relative mb-3">
           <span className="ps-3 absolute top-[50%] translate-y-[-50%] text-white">Sekund: {date.seconds}</span>
-          <progress className="progress-bar" id="file" value={date.seconds} max={60}></progress>
+          <progress className="progress-bar rounded" id="file" value={date.seconds} max={60}></progress>
         </div>
       </div>
       <Button kind="text" handleClick={() => handleBreak()} children={'Przerwij'}></Button>

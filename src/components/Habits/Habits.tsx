@@ -58,17 +58,18 @@ export const Habits = () => {
 
   return (
     <>
-      <div>
+      <div className="my-10">
         <h2 className="text-2xl mb-4 text-center font-bold">Twoje nawyki</h2>
         <div className="flex">
           <select className="bg-gray p-4 rounded shadow w-full" ref={selectRef}>
+            <option value="0">Wybierz</option>
             {Object.keys(HABIT_NAMES).map((key:number) => <option value={key}>{HABIT_NAMES[key]}</option>)}
           </select>
           <Button className="ms-5" kind="primary" handleClick={handleAdd} children={"Dodaj nowy licznik"}></Button>
         </div>
       </div>
       <div className="flex flex-col my-16">
-        <div className="flex gap-4 justify-evenly">
+        <div className="grid grid-cols-3 gap-4 justify-evenly">
           {data.data.map((habit) => (
             <HabitCard habit={habit} />
           ))}

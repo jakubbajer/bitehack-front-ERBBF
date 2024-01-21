@@ -7,7 +7,7 @@ import { createCheerup } from './../../api/cheer-up';
 import { useUserContext } from './../../hooks/useUserContext';
 import { useLocalStorage } from './../../hooks/useLocalStorage';
 
-interface ToBeCheered {
+export interface ToBeCheered {
     id: number
     isCheered: boolean
     note: string 
@@ -67,7 +67,7 @@ export const CheerUp = ({setCheered} : {setCheered: Dispatch<SetStateAction<bool
   }
 
   return (
-    <div className="shadow rounded w-full p-5 bg-gray my-5">
+    <div className="shadow rounded w-full px-5 bg-gray my-10">
         <h3 className="text-xl font-bold">Wspieraj innych!</h3>
         <div>
             <FontAwesomeIcon icon={faUserAlt} /> <span className="text-primary ms-3">Anonim - ocena samopoczucia: {toBeCheered.rating}</span>
