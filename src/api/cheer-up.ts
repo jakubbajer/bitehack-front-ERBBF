@@ -15,3 +15,5 @@ export const createCheerup = (
     }),
     headers: { "content-type": "application/json" },
 })
+
+export const getPastCheerups = (userId: number) => api(`/cheerups/user/${userId}`, {});

@@ -55,3 +55,19 @@ body, #root {
 .bg-gray {
     background-color: lightgray;
 }
+
+progress::-moz-progress-bar {
+    background: #5b2b5e;
+}
+
+.progress-bar {
+    height: 30px;
+}
+
+progress::-webkit-progress-value {
+    transition: width 0.5s;
+}
+
+.quote-sign {
+    color: #ededed;
+}
