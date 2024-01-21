@@ -10,6 +10,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { ModalContextProvider } from "./components/Modal/ModalContext";
 import { UserContextProvider } from "./contexts/UserContext";
 import UsefulPages from "./pages/UsefulPages.tsx";
+import TherapistsPage from "./pages/TherapistsPage.tsx";
 
 const App = () => {
   const queryClient = new QueryClient();
@@ -33,6 +34,22 @@ const App = () => {
                     element={
                         <Layout>
                             <UsefulPages />
+                        </Layout>
+                    }
+                />
+                <Route
+                    path="/nasi-specjalisci"
+                    element={
+                        <Layout>
+                            <TherapistsPage />
+                        </Layout>
+                    }
+                />
+                <Route
+                    path="/nasi-specjalisci/:id"
+                    element={
+                        <Layout>
+                            <TherapistsPage />
                         </Layout>
                     }
                 />
