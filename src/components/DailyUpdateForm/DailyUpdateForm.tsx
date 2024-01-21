@@ -10,7 +10,7 @@ interface DailyUpdate {
     note: string
 }
 
-export const DailyUpdateForm = ({ setUpdated } : { setUpdated: Dispatch<SetStateAction<boolean>>}) => {
+export const DailyUpdateForm = ({ setUpdated, setSuspiciousUpdate } : { setUpdated: Dispatch<SetStateAction<boolean>>, setSuspiciousUpdate: Dispatch<SetStateAction<boolean>>}) => {
   const { closeModal } = useModalContext();
   const { data: { userId } } = useUserContext();
 
@@ -38,10 +38,14 @@ export const DailyUpdateForm = ({ setUpdated } : { setUpdated: Dispatch<SetState
     }
   }
 
-  const ratingClasses : string = 'p-3 cursor-pointer shadow rounded-[50%] w-10 h-10 flex items-center justify-center text-bold';
+  const ratingClasses : string = 'w-10 cursor-pointer';
 
   const postUpdate = () => {
-    sendUpdate(userId, update.rating, update.note).then(() => {
+    sendUpdate(userId, update.rating, update.note).then((res) => {
+      if (res.suspiciousMessage) {
+        setSuspiciousUpdate(true);
+      }
+
       setUpdated(true);
       closeModal();
     });
@@ -50,9 +54,11 @@ export const DailyUpdateForm = ({ setUpdated } : { setUpdated: Dispatch<SetState
   return (
     <div className="w-full h-full flex flex-col justify-between">
         <h2 className="text-2xl text-left font-bold">Pora na dzisiejszy update! Jak samopoczucie?</h2>
-        <div className="flex columns-5 my-5 justify-between">
+        <div className="flex columns-5 my-5 justify-between ">
             {[1,2,3,4,5].map((rating : number) => (
-                <div className={rating == update.rating ? ` ${ratingClasses} bg-primary text-white` : `${ratingClasses} bg-white`} onClick={() => setRating(rating)}>{ rating }</div>
+                <div onClick={() => setRating(rating)}>
+                  <img className={rating == update.rating ? `${ratingClasses} grayscale-0` : `${ratingClasses} grayscale-[0.9]`} src={`/${rating}.png`} />
+                </div>
             ))}
         </div>
         <textarea onInput={(e) => setNote(e.target.value)} className="w-full text-xl border-none bg-white p-3 rounded resize-none h-[150px]" placeholder="Powiedz nam jak się czujesz, czy coś nie tak?"></textarea>

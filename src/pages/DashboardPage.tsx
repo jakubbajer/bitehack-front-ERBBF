@@ -14,6 +14,7 @@ interface UserStreak {
 function DashboardPage() {
   const { data: { userId, user } } = useUserContext();
   const [streak, setStreak] = useState<UserStreak>();
+  const [cheered, setCheered] = useState<boolean>(false);
 
   useEffect(() => {
     const getStreak = async () => {
@@ -27,7 +28,7 @@ function DashboardPage() {
     }
 
     getStreak();
-  }, [])
+  }, [cheered])
 
   return (
     <EnsureLoggedIn>
@@ -44,7 +45,7 @@ function DashboardPage() {
       </div>
       <div className="container mx-auto">
         <DailyUpdate />
-        <CheerUp />
+        <CheerUp setCheered={setCheered} />
         <Habits />
       </div>
     </EnsureLoggedIn>

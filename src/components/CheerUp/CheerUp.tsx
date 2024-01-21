@@ -1,6 +1,6 @@
 import { faUserAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useEffect, useState } from 'react'
+import React, { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { Button } from '../Button';
 import { getRandomDailyUpdate } from './../../api/daily-update';
 import { createCheerup } from './../../api/cheer-up';
@@ -16,7 +16,7 @@ interface ToBeCheered {
     userId: number
 }
 
-export const CheerUp = () => {
+export const CheerUp = ({setCheered} : {setCheered: Dispatch<SetStateAction<boolean>>}) => {
   const { data: { userId } } = useUserContext();
   const [ userAlreadyCheered, setUserAlreadyCheered] = useLocalStorage<Date|null>("userCheeredSomeone", null);
 
@@ -50,6 +50,7 @@ export const CheerUp = () => {
     try {
         await createCheerup(toBeCheered.id, toBeCheered.userId, userId as number, note);
         setUserAlreadyCheered(new Date());
+        setCheered(true);
     } catch (error) {
         console.error(error);
     }
@@ -58,8 +59,12 @@ export const CheerUp = () => {
   const canSendCheer = () => {
     return note.length > 20;
   }
+
   if (toBeCheered.id == 0) return null;
-  // if ((userAlreadyCheered != null && new Date(userAlreadyCheered)).getDate() == (new Date()).getDate()) return null;
+
+  if (userAlreadyCheered != null) {
+    if ((new Date(userAlreadyCheered)).getDate() == (new Date()).getDate()) return null;
+  }
 
   return (
     <div className="shadow rounded w-full p-5 bg-gray my-5">

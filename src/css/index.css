@@ -51,3 +51,11 @@ body, #root {
 .article-intro p {
     font-weight: 700;
 }
+
+progress::-moz-progress-bar {
+    background: #5b2b5e;
+}
+
+.progress-bar {
+    height: 30px;
+}

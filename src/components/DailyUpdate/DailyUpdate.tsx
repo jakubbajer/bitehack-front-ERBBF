@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef, useMemo } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useModalContext } from "../Modal/ModalContext";
 import { DailyUpdateForm } from "../DailyUpdateForm";
 import { getDailyUpdate } from "./../../api/daily-update";
@@ -6,6 +6,7 @@ import { Line } from "react-chartjs-2";
 import "chart.js/auto"; // ADD THIS
 import { useUserContext } from "./../../hooks/useUserContext";
 import * as React from "react";
+import { SuspiciousUpdate } from "../SuspiciousUpdate";
 
 interface DailyUpdate {
   note: string;
@@ -50,6 +51,7 @@ export const DailyUpdate = () => {
   const { data: { userId } } = useUserContext();
   const [updated, setUpdated] = useState<boolean>(false);
   const [chartData, setChartData] = useState<object|null>(null);
+  const [suspiciousUpdate, setSuspiciousUpdate] = useState<boolean>(false);
 
   const modal = useModalContext();
 
@@ -64,21 +66,21 @@ export const DailyUpdate = () => {
 
         setUpdates(sorted);
         
-        if (sorted.length) setChartData(extractRatingsWithDays(sorted.reverse()));
+        if (sorted.length) setChartData(extractRatingsWithDays([...sorted].reverse()));
         
-        if (!response.length) {
-          modal.openModal(<DailyUpdateForm setUpdated={setUpdated} />)
+        if (!sorted.length) {
+          modal.openModal(<DailyUpdateForm setUpdated={setUpdated} setSuspiciousUpdate={setSuspiciousUpdate} />)
           return;
         }
 
-        if (!response[0].id) {
-          modal.openModal(<DailyUpdateForm setUpdated={setUpdated} />)
+        if (!sorted[0].id) {
+          modal.openModal(<DailyUpdateForm setUpdated={setUpdated} setSuspiciousUpdate={setSuspiciousUpdate} />)
           return;
         }
 
         if (sorted.length) {
-          if ((new Date(updates[0].timestamp)).getDate() != (new Date()).getDate()) {
-            modal.openModal(<DailyUpdateForm setUpdated={setUpdated} />)
+          if ((new Date(sorted[0].timestamp)).getDate() != (new Date()).getDate()) {
+            modal.openModal(<DailyUpdateForm setUpdated={setUpdated} setSuspiciousUpdate={setSuspiciousUpdate} />)
             return;
           }
         }
@@ -91,7 +93,10 @@ export const DailyUpdate = () => {
     getLatestStatus();
   }, [updated]);
 
-  console.log(updates)
+  useEffect(() => {
+    if (suspiciousUpdate)
+      modal.openModal(<SuspiciousUpdate/>)
+  }, [suspiciousUpdate])
 
   return (
     <div className="w-full my-5">
