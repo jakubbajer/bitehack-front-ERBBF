@@ -67,3 +67,9 @@ progress::-webkit-progress-value {
 .quote-sign {
     color: #ededed;
 }
+
+.page-image-style {
+    object-fit: cover;
+    height: 150px;
+    width: 100%;
+}

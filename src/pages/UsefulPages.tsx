@@ -22,7 +22,7 @@ function UsefulPagesPage() {
         {pages.map((page: PageInterface, index: number) => (
             <a href={page.link} className="hover:bg-gray">
                 <div className={`p-4 my-4 flex flex-col justify-center items-center`}>
-                    <img src={page.image} className="max-h-[100px]" />
+                    <img src={page.image} className="page-image-style" />
 
                     <div className="my-4">
                         <h1 className="text-xl font-bold my-2">{page.name}</h1>
